@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Mybatis mapping, 추상화 구현. mapper namespace 확인 잘 하자! -->
+<mapper namespace="com.spring.shop.mapper.MemberMapper">
+	<!-- select, insert같은거 -->
+	<select id="goLogin" parameterType="com.spring.shop.dto.Member" resultType="com.spring.shop.dto.Member">
+		SELECT 
+			mi_id,
+			mi_pw,
+			mi_name,
+			mi_email,
+			mi_mobile
+			mi_addr,
+			TO_CHAR(TO_TIMESTAMP(mi_insdate, 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI') "mi_insdate"
+		FROM MEMBER_INFO MI 
+		WHERE MI_ID = #{mi_id} AND MI_PW = #{mi_pw}
+	</select>
+	<insert id="goJoin" parameterType="com.spring.shop.dto.Member">
+		INSERT INTO MEMBER_INFO (
+			mi_id,
+			mi_pw,
+			mi_name,
+			mi_email,
+			mi_mobile,
+			mi_addr
+		)
+		values(#{mi_id},#{mi_pw},#{mi_name},#{mi_email},#{mi_mobile},#{mi_addr})
+	</insert>
+</mapper>
