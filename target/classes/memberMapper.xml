@@ -24,6 +24,21 @@
 			mi_mobile,
 			mi_addr
 		)
-		values(#{mi_id},#{mi_pw},#{mi_name},#{mi_email},#{mi_mobile},#{mi_addr})
+		values(
+		#{mi_id},#{mi_pw},#{mi_name},#{mi_email},#{mi_mobile},#{mi_addr}
+		)
 	</insert>
+	<update id="goUserUpdate" parameterType="com.spring.shop.dto.Member" >
+		UPDATE 
+		MEMBER_INFO 
+		SET 
+		MI_NAME =#{mi_name}, mi_email=#{mi_email}, mi_mobile=#{mi_mobile}, mi_addr=#{mi_addr}
+		WHERE MI_ID =#{mi_id} 
+	</update>
+	<delete id="goUserDelete" parameterType="com.spring.shop.dto.Member" >
+		DELETE 
+		FROM 
+		MEMBER_INFO 
+		WHERE MI_ID = #{mi_id}
+	</delete>
 </mapper>

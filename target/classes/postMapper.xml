@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Mybatis mapping, 추상화 구현. mapper namespace 확인 잘 하자! -->
+<mapper namespace="com.spring.shop.mapper.PostMapper">
+	<insert id="goPostWrite" parameterType="com.spring.shop.dto.Post">
+		INSERT INTO post(
+			post_num,
+			post_title,
+			post_content,
+			post_count,
+			mi_id
+		) 
+		values(
+			nextval('seq_post_num'),
+			#{post_title},
+			#{post_content},
+			#{post_count},
+			#{mi_id}
+		)
+	</insert>	
+	<select id="getNotice" parameterType="com.spring.shop.dto.Post" resultType="com.spring.shop.dto.Post">
+		SELECT 
+		post_num,
+		post_title,
+		mi_id,post_count,
+		TO_CHAR(TO_TIMESTAMP(post_date, 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI') "post_date"
+		from 
+		post
+	</select>
+	
+	<select id="getPost" parameterType="com.spring.shop.dto.Post" resultType="com.spring.shop.dto.Post">
+		SELECT 
+		* 
+		FROM 
+		post 
+		WHERE 
+		post_num=#{post_num}
+	</select>
+	
+</mapper>

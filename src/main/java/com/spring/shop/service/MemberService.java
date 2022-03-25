@@ -1,5 +1,6 @@
 package com.spring.shop.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,12 @@ public class MemberService {
 	public int goJoin(Member member) {
 		return memberDAO.goJoin(member);
 	}
-
+	public int goUserUpdate(Member member) {
+		return memberDAO.goUserUpdate(member);
+	}
+	public int goUserDelete(Member member) {
+		return memberDAO.goUserDelete(member);
+	}
+	
 }
 

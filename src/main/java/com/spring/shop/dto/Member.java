@@ -10,7 +10,6 @@ public class Member {
 	private String mi_insdate;
 	
 	public Member() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getMi_id() {

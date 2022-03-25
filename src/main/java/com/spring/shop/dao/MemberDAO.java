@@ -1,5 +1,6 @@
 package com.spring.shop.dao;
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,5 +20,11 @@ public class MemberDAO {
 	public int goJoin(Member member) {
 		return ss.getMapper(MemberMapper.class).goJoin(member);
 	}
-
+	public int goUserUpdate(Member member) {
+		return ss.getMapper(MemberMapper.class).goUserUpdate(member);
+	}
+	public int goUserDelete(Member member) {
+		return ss.getMapper(MemberMapper.class).goUserDelete(member);
+	}
+	
 }
