@@ -36,5 +36,17 @@
 		WHERE 
 		post_num=#{post_num}
 	</select>
-	
+	<update id="goPostUpdate" parameterType="com.spring.shop.dto.Post">
+		UPDATE 
+		POST 
+		SET 
+		post_title =#{post_title}, post_content=#{post_content}
+		WHERE post_num =#{post_num} 
+	</update>
+	<delete id="goPostDelete" parameterType="com.spring.shop.dto.Post">
+		DELETE 
+		FROM 
+		POST 
+		WHERE post_num =#{post_num} 
+	</delete>
 </mapper>

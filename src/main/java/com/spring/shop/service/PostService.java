@@ -21,7 +21,13 @@ public class PostService {
 		
 		return postDAO.getNotice(post);
 	}
-	public Post getPost(Post post) {
-		return postDAO.getPost(post);
+	public Post getPost(int num) {
+		return postDAO.getPost(num);
+	}
+	public int postUpdate(Post post) {
+		return postDAO.postUpdate(post);
+	}
+	public int postDelete(int num) {
+		return postDAO.postDelete(num);
 	}
 }

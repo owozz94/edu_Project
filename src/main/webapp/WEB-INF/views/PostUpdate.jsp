@@ -1,37 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page errorPage="/ErrorPage.jsp" %>
-<form action="FileProc" method="post" enctype="multipart/form-data">
-	<div class="PostOutBox" >
+<form action="/goPostUpdate" method="post">
+	<div class="centerPostOut" >
 		<div class="PostInBox">
 			<div class="writeBoxBottom">
-				<div class="writeBtn">
-					<div class="select">
-						<input type="hidden" name="option" value="update">
-						<input type="submit"  class="btn btn-primary" value="발행">
-						<select class="form-select" name="location" aria-label="Default select example">
-							<option value="서울">서울</option>
-							<option value="경기">경기</option>
-							<option value="충청">충청</option>
-							<option value="대구">대구</option>
-							<option value="경북">경북</option>
-							<option value="부산">부산</option>
-							<option value="경남">경남</option>
-							<option value="전라">전라</option>
-							<option value="제주">제주</option>
-						</select>
-					</div>
-				</div>
 				<div class="selectBottomBox">
 					<div class="writeTitle" >
 						<span>제목</span>
-						<input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="${BlogBean.title }">
+						<input type="text" name="post_title" class="form-control" id="exampleFormControlInput1" value="${p.post_title}" >
 					</div>
 					<div class="WriteContent">
 						<span>내용</span>
-						<textarea class="form-control" placeholder="내용" rows="23" name="content">
-							${BlogBean.content }
-						</textarea>
+						<input type="text" name="post_content" value="${p.post_content}">
+					</div>
+				</div>
+				<div class="writeBtn">
+					<div class="select">
+						<input type="submit"  class="btn btn-primary" value="수정하기">
+						<input type="hidden" name="mi_id" class="updateInput" value="${p.mi_id}" >
+						<input type="hidden" name="post_num" class="updateInput" value="${p.post_num}" >
+						
 					</div>
 				</div>
 			</div>

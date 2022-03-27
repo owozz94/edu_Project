@@ -40,9 +40,39 @@ public class NoticeController {
 	}
 	@RequestMapping(value="/getPost",method= RequestMethod.GET)
 	public String getPost(HttpServletRequest req, Post post) {
-		String num = req.getParameter("num");
+	
+	int post_num = Integer.parseInt(req.getParameter("post_num"));
+		Post p = postService.getPost(post_num);
+		System.out.println(p.getPost_content());
+		req.getSession().setAttribute("p", p);
 		req.setAttribute("center", "Post.jsp");
 		return "Main";
 	}
-	
+	@RequestMapping(value="/postUpdateForm", method=RequestMethod.GET)	
+	public String updatePostForm(HttpServletRequest req) {
+		req.setAttribute("center", "PostUpdate.jsp");
+		return "Main";
+	}
+	@RequestMapping(value="/goPostUpdate", method=RequestMethod.POST)	
+	public String updatePost(HttpServletRequest req, Post post) {
+		
+		postService.postUpdate(post);
+		
+		System.out.println(post.getPost_title());
+		System.out.println(post.getPost_content());
+		System.out.println(post.getMi_id());
+		req.getSession().setAttribute("p", post);
+		
+		req.setAttribute("center", "Notice.jsp");
+		return "Main";
+	}
+	@RequestMapping(value="/goPostDelete", method=RequestMethod.GET)	
+	public String deletePost(HttpServletRequest req) {
+		int post_num = Integer.parseInt(req.getParameter("post_num"));
+		postService.postDelete(post_num);
+		
+		req.setAttribute("center", "Notice.jsp");
+		
+		return "Main";
+	}
 }

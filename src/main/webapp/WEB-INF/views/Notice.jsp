@@ -15,7 +15,7 @@
   <c:forEach var="list" items="${list}">
     <tr>
       <th scope="row">${list.post_num}</th>
-     <td> <a href="/getPost?num=${list.post_num}">${list.post_title}</a></td>
+     <td> <a href="/getPost?post_num=${list.post_num}">${list.post_title}</a></td>
       <td>${list.mi_id}</td>
       <td>${list.post_date}</td>
       <td>${list.post_count}</td>

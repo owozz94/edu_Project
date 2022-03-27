@@ -10,5 +10,9 @@ public interface PostMapper {
 	//notice
 	public abstract ArrayList<Post> getNotice(Post post);
 	//post
-	public abstract Post getPost(Post post);
+	public abstract Post getPost(int num);
+	//postUpdate
+	public abstract int goPostUpdate(Post post);
+	//goPostDelete
+	public abstract int goPostDelete(int num);
 }

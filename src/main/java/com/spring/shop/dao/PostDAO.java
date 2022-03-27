@@ -22,8 +22,15 @@ public class PostDAO {
 		
 		return ss.getMapper(PostMapper.class).getNotice(post);
 	}
-	public Post getPost(Post post) {
-		return ss.getMapper(PostMapper.class).getPost(post);
+	public Post getPost(int num) {
+		return ss.getMapper(PostMapper.class).getPost(num);
+	}
+	public int postUpdate(Post post) {
+		
+		return ss.getMapper(PostMapper.class).goPostUpdate(post);
+	}
+	public int postDelete(int num) {
+		return ss.getMapper(PostMapper.class).goPostDelete(num);
 	}
 	
 
